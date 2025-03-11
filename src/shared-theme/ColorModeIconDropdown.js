@@ -9,6 +9,7 @@ import { useColorScheme } from '@mui/material/styles';
 
 export default function ColorModeIconDropdown(props) {
   const { mode, systemMode, setMode } = useColorScheme();
+  setMode('dark');
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
