@@ -47,7 +47,13 @@ export default function LogoCollection() {
       <Grid container sx={{ justifyContent: 'center', mt: 2, opacity: 0.8}} gap={2}>
         {logos.map((logo, index) => (
             <Chip
-              sx={{width: 100, pt: 2, pb: 2}}
+              sx={{
+                width: 100, pt: 2, pb: 2,
+                cursor: 'pointer',
+                '&:hover': {
+                  transform: 'scale(1.02)'
+                }
+              }}
               avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
               label="José"
               variant="outlined"

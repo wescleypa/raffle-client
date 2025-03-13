@@ -30,7 +30,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   padding: '8px 12px',
 }));
 
-export default function AppAppBar() {
+export default function AppAppBar({ selItem, setSelItem }) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -42,6 +42,10 @@ export default function AppAppBar() {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const goHome = () => {
+    setSelItem(false);
   };
 
   return (
@@ -60,18 +64,28 @@ export default function AppAppBar() {
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
             {/*<img src={Logo} width="100px" />*/}Aqui vai seu logo
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button variant="text" color="info" size="small" onClick={() => scrollToSection('logoCollection')}>
-                Prêmios
-              </Button>
-              <Button variant="text" color="info" size="small" onClick={() => scrollToSection('testimonials')}>
-                Depoimentos
-              </Button>
-              <Button variant="text" color="info" size="small" onClick={() => scrollToSection('faq')}>
-                Dúvidas frequesntes
-              </Button>
-              <Button variant="text" color="info" size="small" onClick={() => scrollToSection('hero')}>
-                Consultar meus números
-              </Button>
+              {!selItem && selItem !== 0 ? (
+                <>
+                  <Button variant="text" color="info" size="small" onClick={() => scrollToSection('logoCollection')}>
+                    Prêmios
+                  </Button>
+                  <Button variant="text" color="info" size="small" onClick={() => scrollToSection('testimonials')}>
+                    Depoimentos
+                  </Button>
+                  <Button variant="text" color="info" size="small" onClick={() => scrollToSection('faq')}>
+                    Dúvidas frequesntes
+                  </Button>
+                  <Button variant="text" color="info" size="small" onClick={() => scrollToSection('hero')}>
+                    Consultar meus números
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="text" color="info" size="small" onClick={() => goHome()}>
+                    Voltar ao início
+                  </Button>
+                </>
+              )}
             </Box>
           </Box>
           <Box

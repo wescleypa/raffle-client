@@ -21,8 +21,8 @@ export default function Body(props) {
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
-      <AppAppBar />
-      {!selItem ? (
+      <AppAppBar selItem={selItem} setSelItem={setSelItem} />
+      {!selItem && selItem !== 0 ? (
         <>
           <Hero id="hero" /> 
           <div>

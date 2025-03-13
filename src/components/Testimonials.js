@@ -54,11 +54,6 @@ const userTestimonials = [
   },
 ];
 
-const logoStyle = {
-  width: '64px',
-  opacity: 0.3,
-};
-
 export default function Testimonials() {
   const theme = useTheme();
 
@@ -97,7 +92,7 @@ export default function Testimonials() {
         {userTestimonials.map((testimonial, index) => (
           <Grid
             key={index}
-            size={{ xs: 12, sm: 6, md: 4 }} // Corrigido conforme solicitado
+            size={{ xs: 12, sm: 6, md: 4 }}
             sx={{ display: 'flex' }}
           >
             <Card
